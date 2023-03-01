@@ -25,7 +25,7 @@
  * @Author: SessyoinChen
  * @Date: 2022-08-10 14:33:46
  * @LastEditors: SessyoinChen
- * @LastEditTime: 2023-02-28 15:44:37
+ * @LastEditTime: 2023-03-01 14:28:22
  * @FilePath: \my-app\src\02-advance\08-subscribe.js
  * @Description: 39 - componentes irmãos, não foi possivel acessar test.json
  * https://www.bilibili.com/video/BV1dP4y1c7qd?p=39&vd_source=836fdc694e557e7ae17e2acd7a4c61bd
@@ -33,6 +33,7 @@
 
 import React, { Component } from 'react'
 import axios from 'axios'
+import './css/03-communication.css'
 
 var bus = {
     list:[],
@@ -82,13 +83,15 @@ export default class App extends Component {
 class FilmItem extends Component{
     render(){
         console.log(this.props)
-        let {name, poster, grade, synopsis} = this.props
+        let {name, poster, grade, synopsis, nation} = this.props
         return(
-            <div onClick={()=>{
-                bus.publish(synopsis)
+            <div className='filmitem' onClick={()=>{
+                this.props.onEvent(synopsis)
             }}>
                 <img src={poster} alt={name}/>
                 <h4>{name}</h4>
+                <div>Nota: {grade}</div>
+                <div>Nação: {nation}</div>
             </div>
         )
     }

@@ -12,7 +12,14 @@
                         "role":"Diretor",
                         "avatarAddress":"https://pic.maizuo.com/usr/movie/75c67d58c49822d782561cdcca65189c.jpg"
                     }
-                ]
+                ],
+                "grade":"4",
+                "synopsis":"nada",
+                "nation":"China",
+                "premiereAt":"1617321600",
+                "runtime":"127",
+                "timeType":"3",
+                "videoId":""
             },
             {
                 "filmId":114515,
@@ -24,7 +31,14 @@
                         "role":"Diretor",
                         "avatarAddress":"https://pic.maizuo.com/usr/movie/75c67d58c49822d782561cdcca65189c.jpg"
                     }
-                ]
+                ],
+                "grade":"4",
+                "synopsis":"nada de bom",
+                "nation":"China",
+                "premiereAt":"1617321600",
+                "runtime":"127",
+                "timeType":"3",
+                "videoId":""
             }
         ]
     }
