@@ -25,7 +25,7 @@
  * @Author: SessyoinChen
  * @Date: 2022-08-10 14:33:46
  * @LastEditors: SessyoinChen
- * @LastEditTime: 2023-03-01 13:00:49
+ * @LastEditTime: 2023-03-05 20:02:45
  * @FilePath: \my-app\src\02-advance\06-componentesIrmaos.js
  * @Description: 39 - componentes irmãos, não foi possivel acessar test.json
  * https://www.bilibili.com/video/BV1dP4y1c7qd?p=39&vd_source=836fdc694e557e7ae17e2acd7a4c61bd
@@ -43,13 +43,17 @@ export default class App extends Component {
             filmList:[],
             info:""
         }
-        axios.get(`/test.json`).then(res=>{
-            console.log(res.data.data.films)
-            this.setState({
-                filmList:res.data.data.films
-            })
-        })
+        
     }
+
+componentDidMount(){
+    axios.get(`/test.json`).then(res=>{
+        console.log(res.data.data.films)
+        this.setState({
+            filmList:res.data.data.films
+        })
+    })
+}
 
     render() {
     return (

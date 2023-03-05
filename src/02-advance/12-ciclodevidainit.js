@@ -6,7 +6,7 @@ state={
     myname:"zero"
 }
 
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
         console.log('willMount', this.state.myname, document.getElementById("myname"))
 
         this.setState({
