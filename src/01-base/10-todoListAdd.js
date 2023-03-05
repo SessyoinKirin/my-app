@@ -36,7 +36,7 @@
  * @Author: SessyoinChen
  * @Date: 2022-07-24 14:40:08
  * @LastEditors: SessyoinChen
- * @LastEditTime: 2022-07-24 20:44:09
+ * @LastEditTime: 2023-03-04 23:07:00
  * @FilePath: \my-app\src\01-base\10-todoListAdd.js
  * @Description: 17 - adicionar todolist
  * 19 - condições
@@ -44,83 +44,87 @@
  */
 import React, { Component } from 'react'
 import './css/01-index.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 export default class App extends Component {
-    myref = React.createRef()
+  myref = React.createRef()
 
-    state={
-        list:[{
-            id:1,
-            text:"aaa"
-        },
-        {
-            id:2,
-            text:"bbb"
-        },
-        {
-            id:3,
-            text:"ccc"
-        }
+  state = {
+    list: [
     ]
-    }
+  }
   render() {
     return (
-      <div>
-        <input ref={this.myref}/>
-        <button onClick={this.handleClick}>add1</button>
-        <ul>
-            {
-                this.state.list.map((item, index)=><li key={item.id}>
-                    {/* {item.text} */}
-                {/* <button onClick={this.handleDelClick.bind(this, index)}>del</button> */}
+      <div className={'bg-dark wrapper'}>
+        <Navbar></Navbar>
+        <div className={'container pt-5'}>
+          <div className={'col-12 col-lg-6 mx-auto mt-5 p-5 border border-white rounded'}>
+            <div>
+              <div className={'input-group mb-3'}>
+                <input ref={this.myref} placeholder="Add something important" className={'form-control'} />
+                <button onClick={this.handleClick} className={'btn btn-outline-info rounded-0'}>Add</button>
+              </div>
+              <hr />
+            </div>
 
-                <span dangerouslySetInnerHTML= {{
-                    __html:item.text
-                }}></span>
-                <button onClick={()=>this.handleDelClick(index)}>del</button>
+            <ul className={'list-group mt-5 rounded-0'}>
+              {
+                this.state.list.map((item, index) => <li className={'list-group-item d-flex justify-content-between align-item-center border border-dark'} key={item.id}>
+                  <span className={'fs-4'} dangerouslySetInnerHTML={{
+                    __html: item.text
+                  }}></span>
+                  <button onClick={() => this.handleDelClick(index)} className={'btn btn-outline-dark rounded-0'}>Del</button>
                 </li>)
-            }
-        </ul>
-        
+              }
+            </ul>
 
-    {/* {this.state.list.length===0?<div>Congratulations, you exterminated all!!</div>:null} */}
-
-    {/* {this.state.list.length===0 && <div>Congratulations, you exterminated all!!</div>} */}
-
-    <div className={this.state.list.length===0?'':'hidden'}>
-    Congratulations, you exterminated all!!
-    </div>
+            <div className={this.state.list.length === 0 ? '' : 'hidden'}>
+              <p className={'text-center text-white fs-3 mt-5'}>Congratulations, you finished all!!</p>
+            </div>
+          </div>
+        </div>
       </div>
     )
   }
-  handleClick=()=>{
-    console.log(this.myref.current.value)
-
-
+  handleClick = () => {
     let newlist = [...this.state.list]
     newlist.push({
-        id:Math.random()*1000000000,
-        text: this.myref.current.value
+      id: Math.random() * 1000000000,
+      text: this.myref.current.value
     })
-    // this.state.list.push(this.myref.current.value)
-
     this.setState({
-        list: newlist
+      list: newlist
     })
-
-    //esvaziar input:
     this.myref.current.value = ""
   }
 
-  handleDelClick(index){
+  handleDelClick(index) {
     console.log('del-click', index)
 
     let newlist = this.state.list.slice()
 
-    newlist .splice(index, 1)
+    newlist.splice(index, 1)
 
     this.setState({
-        list:newlist
+      list: newlist
     })
+  }
+}
+
+
+class Navbar extends Component {
+  render() {
+    return (
+      <div>
+        <nav className={'navbar px-5 py-3 border-bottom'}>
+          <div className={'container-fluid'}>
+            <a href='' className={'navbar-brand text-white'}>Todo list application</a>
+            <a target={'_blank'} href={'https://github.com/SessyoinKirin/my-app/blob/master/src/01-base/10-todoListAdd.js'} className={'aTag'}>
+              <button className={'btn btn-outline-info'}
+              >See Code</button></a>
+          </div>
+        </nav>
+      </div>
+    )
   }
 }

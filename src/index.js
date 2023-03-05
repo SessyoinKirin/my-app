@@ -9,7 +9,7 @@
  */
 import React from 'react'
 import ReactDom from 'react-dom'
-import App from './02-advance/12-ciclodevidainit'
+import App from './01-base/10-todoListAdd'
 
 ReactDom.render(
     // <React.StrictMode>
