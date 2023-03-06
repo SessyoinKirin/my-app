@@ -17,14 +17,14 @@ export default class App extends Component {
             </div>
         )
     }
-shouldComponentUpdate(nextProps, nextState){
-    if(JSON.stringify(this.state) !== JSON.stringify(nextState)){
-       return true 
-    }
+    shouldComponentUpdate(nextProps, nextState) {
+        if (JSON.stringify(this.state) !== JSON.stringify(nextState)) {
+            return true
+        }
 
-    return false
-}
-    componentDidUpdate(){
+        return false
+    }
+    componentDidUpdate() {
         console.log("update")
     }
 }

@@ -9,7 +9,7 @@
  */
 import React from 'react'
 import ReactDom from 'react-dom'
-import App from './02-advance/15-ciclodevidaupdatep2'
+import App from './02-advance/16-ciclodevidaupdate2app'
 
 ReactDom.render(
     // <React.StrictMode>
