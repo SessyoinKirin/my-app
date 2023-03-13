@@ -9,7 +9,7 @@
  */
 import React from 'react'
 import ReactDom from 'react-dom'
-import App from './02-advance/23-novociclodevidap2app'
+import App from './02-advance/24-otimization'
 
 ReactDom.render(
     // <React.StrictMode>
