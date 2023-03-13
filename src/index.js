@@ -9,7 +9,7 @@
  */
 import React from 'react'
 import ReactDom from 'react-dom'
-import App from './02-advance/26-swiperAssincro'
+import App from './02-advance/27-componentSwiper'
 
 ReactDom.render(
     // <React.StrictMode>
