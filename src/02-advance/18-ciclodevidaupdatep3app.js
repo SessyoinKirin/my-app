@@ -47,7 +47,7 @@ class FilmList extends Component {
             }).then(res => {
                 console.log(res.data.data.films)
                 this.setState({
-                    list: res.data.data.film
+                    list: res.data.data.films
                 })
             })
         } else {
@@ -61,7 +61,7 @@ class FilmList extends Component {
             }).then(res => {
                 console.log(res.data.data.films)
                 this.setState({
-                    list: res.data.data.film
+                    list: res.data.data.films
                 })
             })
         }
@@ -78,7 +78,7 @@ class FilmList extends Component {
             }).then(res => {
                 console.log(res.data.data.films)
                 this.setState({
-                    list: res.data.data.film
+                    list: res.data.data.films
                 })
             })
         } else {
@@ -92,7 +92,7 @@ class FilmList extends Component {
             }).then(res => {
                 console.log(res.data.data.films)
                 this.setState({
-                    list: res.data.data.film
+                    list: res.data.data.films
                 })
             })
         }
