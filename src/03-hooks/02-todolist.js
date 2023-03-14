@@ -1,5 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import '../01-base/css/01-index.css'
 
 export default function App() {
 
@@ -22,6 +24,8 @@ const handleDel=(index)=>{
     newList.splice(index, 1)
     setList(newList)
 }
+
+
 
     return (
         <div>
