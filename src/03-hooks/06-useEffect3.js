@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { useLayoutEffect } from 'react'
 import { useEffect } from 'react'
 
 export default class App extends Component {
@@ -6,6 +7,7 @@ export default class App extends Component {
         isCreated: false
     }
     render() {
+        console.log('render')
         return (
             <div>
                 <button onClick={() => {
@@ -24,22 +26,28 @@ export default class App extends Component {
 
 function Child() {
     useEffect(() => {
-        // window.onresize = () => {
-        //     console.log('resize')
-        // }
+        window.onresize = () => {
+            console.log('resize')
+        }
 
-        // setInterval(() => {
-        //     console.log('222')
-        // }, 1000)
+        var timer = setInterval(() => {
+            console.log('222')
+        }, 1000)
 
-        // return ()=>{
-        //     console.log("descrucao")
-        // }
+        return ()=>{
+            console.log("descrucao")
+            window.onresize = null
+            clearInterval(timer)
+        }
     }, [])
     return <div>
             child
         </div>
 }
+
+// useLayoutEffect trabalha no dom, que as vezes pode atrapalhar a renderização da página, diferente de useEffect que trabalha pós renderização da página 
+
+// mas, quando queira fazer operação de dom em CDM, didUpdate, seria melhor LayoutEffect
 
 // class Child extends Component {
 //     render() {
