@@ -9,7 +9,7 @@
  */
 import React from 'react'
 import ReactDom from 'react-dom'
-import App from './03-hooks/08-useCallback2'
+import App from './03-hooks/09-useMemo'
 
 ReactDom.render(
     // <React.StrictMode>
