@@ -9,7 +9,7 @@
  */
 import React from 'react'
 import ReactDom from 'react-dom'
-import App from './03-hooks/12-useContext'
+import App from './03-hooks/13-useReducer'
 
 ReactDom.render(
     // <React.StrictMode>
