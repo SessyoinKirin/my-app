@@ -16,4 +16,5 @@ ReactDom.render(
     <App />
     // </React.StrictMode>
     , document.getElementById("root")
+    // teste aqui
 )
