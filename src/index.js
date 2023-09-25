@@ -9,7 +9,7 @@
  */
 import React from 'react'
 import ReactDom from 'react-dom'
-import App from './03-hooks/01-useState'
+import App from './04-routerv6/01-router'
 
 ReactDom.render(
     // <React.StrictMode>
