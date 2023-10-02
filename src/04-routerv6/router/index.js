@@ -7,7 +7,7 @@ import Notfound from '../views/Notfound'
 import Search from '../views/Search'
 import NowPlaying from '../views/Films/NowPlaying'
 import ComingSoon from '../views/Films/ComingSoon'
-// import Redirect from '../components/Redirect'
+import Redirect from '../components/Redirect'
 
 export default function MRouter() {
     return (
@@ -16,6 +16,7 @@ export default function MRouter() {
                 {/* <Route path="/" element={<Film />} /> */}
                 {/* <Route index element={<Film />} /> */}
                 <Route path="/film" element={<Film />} >
+                    <Route path='' element={<Redirect to="/film/nowPlaying" />} />
                     <Route path='nowPlaying' element={<NowPlaying/>}/>
                     <Route path='comingSoon' element={<ComingSoon/>}/>
                 </Route>
