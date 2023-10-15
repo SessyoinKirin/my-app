@@ -17,8 +17,12 @@ export default function NowPlaying() {
     })
   }, [])
   const navigate = useNavigate()
+
   const handleChangePage = (id) => {
-    navigate(`/detail?id=${id}`)
+    // querysearch
+    // navigate(`/detail?id=${id}`)
+    // router
+    navigate(`/detail/${id}`)
   }
   const dadosEmbaralhados = embaralhamento(dados)
   return (
@@ -43,7 +47,7 @@ export default function NowPlaying() {
                   <div className='descricao'>{item.desc}</div>
                   <div>
                     {
-                      item.card_prices && item.card_prices.length > 0 &&(
+                      item.card_prices && item.card_prices.length > 0 && (
                         <p>Amazon - R$ {item.card_prices[0].amazon_price}</p>
                       )
                     }

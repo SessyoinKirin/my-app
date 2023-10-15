@@ -1,15 +1,16 @@
 import React from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 export default function Detail() {
-    const [searchParams, setSearchParams] = useSearchParams()
-    console.log(searchParams.get('id'))
-    return (
-        <div>
-            Detail
-            <button onClick={()=>{
-                setSearchParams({id:114514})
-            }}>recomendação</button>
-        </div>
-    )
+    const params = useParams()
+    const navigate = useNavigate()
+    console.log(params.myid)
+  return (
+    <div>
+      detail
+      <button onClick={()=>{
+        navigate('/detail/1000')
+      }}>talvez goste</button>
+    </div>
+  )
 }
