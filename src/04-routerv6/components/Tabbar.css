@@ -1,19 +1,28 @@
-.tabbarActive{
-    color:#114514
+.tabbarActive {
+    color: #007134
 }
-a{
+
+a {
     text-decoration: none;
+    color: #003F34;
 }
-ul{
+
+ul {
     list-style: none;
     padding: 0;
     display: flex;
 }
-li{
+
+li {
     list-style: none;
     display: flex;
     flex: 1;
     justify-content: center;
-    border: 1px solid gray;
-    padding:20px 0;
+    border: 1px solid pink;
+    padding: 20px 0;
+}
+
+.liAtivado {
+    border: 1px solid #FF4DCB;
+    background-color: pink;
 }
