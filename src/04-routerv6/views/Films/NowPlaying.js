@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './NowPlaying.css'
-import { useNavigate } from 'react-router-dom';
+import FilmItem from './FilmItem';
 
 export default function NowPlaying() {
   const [dados, setdados] = React.useState([])
+  const[run, setRerun] = useState(false)
   React.useEffect(() => {
     axios({
       url: "https://db.ygoprodeck.com/api/v7/cardinfo.php",
@@ -16,48 +17,20 @@ export default function NowPlaying() {
 
     })
   }, [])
-  const navigate = useNavigate()
 
-  const handleChangePage = (id) => {
-    // querysearch
-    // navigate(`/detail?id=${id}`)
-    // router
-    navigate(`/detail/${id}`)
-  }
   const dadosEmbaralhados = embaralhamento(dados)
+  const handleRun=()=>{
+    setRerun(!run)
+  }
   return (
     <div>
-      <h3 className='text-center'>
+      <h3 className='text-center' onClick={handleRun}>
         NowPlaying
       </h3>
       <div className='row m-0'>
         {
           dadosEmbaralhados.slice(0, 4).map((item) => (
-            <div key={item.id} className="col-md-6 mb-4" onClick={() => handleChangePage(item.id)}>
-              <div className="d-flex">
-                <div className="text-center">
-                  <div>
-                    {item.card_images && item.card_images.length > 0 && (
-                      <img src={item.card_images[0].image_url_small} alt={item.name} />
-                    )}
-                  </div>
-                </div>
-                <div className="ml-2 textos">
-                  <div>{item.name}</div>
-                  <div className='descricao'>{item.desc}</div>
-                  <div>
-                    {
-                      item.card_prices && item.card_prices.length > 0 && (
-                        <p>Amazon - R$ {item.card_prices[0].amazon_price}</p>
-                      )
-                    }
-                  </div>
-                  {/* Outros elementos à direita */}
-                </div>
-
-
-              </div>
-            </div>
+            <FilmItem key={item.id} {...item}></FilmItem>
           ))
         }
 
@@ -65,6 +38,8 @@ export default function NowPlaying() {
     </div>
   )
 }
+
+
 
 function embaralhamento(lista) {
   const embaralhou = [...lista];
