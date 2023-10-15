@@ -1,3 +1,19 @@
 .tabbarActive{
     color:#114514
 }
+a{
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+li{
+    list-style: none;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    border: 1px solid gray;
+    padding:20px 0;
+}

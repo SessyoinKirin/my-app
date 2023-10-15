@@ -8,6 +8,7 @@ import Search from '../views/Search'
 import NowPlaying from '../views/Films/NowPlaying'
 import ComingSoon from '../views/Films/ComingSoon'
 import Redirect from '../components/Redirect'
+import Detail from '../views/Detail'
 
 export default function MRouter() {
     return (
@@ -23,7 +24,7 @@ export default function MRouter() {
                 <Route path="/cinema" element={<Cinema />} />
                 <Route path="/cinema/search" element={<Search />} />
                 <Route path="/center" element={<Center />} />
-
+                <Route path="/detail" element={<Detail />} />
                 <Route path="/" element={<Navigate to="/film"/>}/>
                 <Route path="*" element={<Notfound />}/>
                 {/* <Route path="*" element={<Redirect to="/film"/>}/> */}
