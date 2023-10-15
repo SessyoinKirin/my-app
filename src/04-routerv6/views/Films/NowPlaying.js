@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import './NowPlaying.css'
 import { useNavigate } from 'react-router-dom';
 
 export default function NowPlaying() {
@@ -27,27 +28,45 @@ export default function NowPlaying() {
       </h3>
       <div className='row m-0'>
         {
-          dadosEmbaralhados.slice(0,3).map(item => <div key={item.id} className='col-md-4 mb-4' onClick={() => handleChangePage(item.id)}>
-            <div className='text-center'>
-              <div>
-                {item.card_images && item.card_images.length > 0 && (
-                  <img src={item.card_images[0].image_url_small} alt={item.name} />
-                )}
+          dadosEmbaralhados.slice(0, 4).map((item) => (
+            <div key={item.id} className="col-md-6 mb-4" onClick={() => handleChangePage(item.id)}>
+              <div className="d-flex">
+                <div className="text-center">
+                  <div>
+                    {item.card_images && item.card_images.length > 0 && (
+                      <img src={item.card_images[0].image_url_small} alt={item.name} />
+                    )}
+                  </div>
+                </div>
+                <div className="ml-2 textos">
+                  <div>{item.name}</div>
+                  <div className='descricao'>{item.desc}</div>
+                  <div>
+                    {
+                      item.card_prices && item.card_prices.length > 0 &&(
+                        <p>Amazon - R$ {item.card_prices[0].amazon_price}</p>
+                      )
+                    }
+                  </div>
+                  {/* Outros elementos à direita */}
+                </div>
+
+
               </div>
-              {/* <div>{item.name}</div> */}
             </div>
-          </div>)
+          ))
         }
+
       </div>
     </div>
   )
 }
 
-function embaralhamento(lista){
+function embaralhamento(lista) {
   const embaralhou = [...lista];
-  for(let i=embaralhou.length-1; i>0; i--){
-    const j = Math.floor(Math.random()*(i+1));
-    [embaralhou[i],embaralhou[j]]=[embaralhou[j],embaralhou[i]]
+  for (let i = embaralhou.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [embaralhou[i], embaralhou[j]] = [embaralhou[j], embaralhou[i]]
   }
   return embaralhou;
 }
